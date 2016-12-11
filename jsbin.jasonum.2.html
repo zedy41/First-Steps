@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2016 by zedy41 (http://jsbin.com/jasonum/2/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<html>
+<head>
+<meta name="description" content="Lecke2: clock">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>Lecke: Óra</title>
+  <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
+<style id="jsbin-css">
+* { margin: 0; padding: 0; }
+html, body {
+  height:100%;  
+}
+#teszt {
+  text-align: center;
+  position: relative;
+  top: 50%;
+  font-family: 'Oswald', sans-serif;
+  font-size: 50px;
+  margin-top: -25px;
+}
+.float{
+  display: inline-block
+  
+}
+</style>
+</head>
+<body>
+  <div id="teszt">
+  <div id="clockH" class="float">2</div>
+  <div id="Div1" class="float">:</div>  
+  <div id="clockM" class="float">6</div>
+    <div id="Div2" class="float">:</div> 
+  <div id="clockS" class="float">4</div>
+  </div>
+<script id="jsbin-javascript">
+function colorClock(){
+var date = new Date();
+var hours = date.getHours();
+var min = date.getMinutes();
+var sec = date.getSeconds();
+var clockFace
+if (hours<10){
+  hours = "0"+hours;
+}
+if (min<10){
+  min = '0'+min
+}
+if (sec<10){
+  sec = '0'+sec
+}
+/*clockFace=(hours +':'+min+':'+sec);
+document.getElementById('clock').innerHTML = clockFace*/
+
+var hexColor ='#' + hours + min + sec; 
+document.body.style.background = hexColor;
+
+var hexColor2  ='#' + sec + hours + min;
+  
+document.getElementById('teszt').style.background = hexColor2  ;
+
+var hexH = '#' +hours + hours + hours;
+document.getElementById('clockH').innerHTML = hours  ;
+document.getElementById('clockH').style.color = hexH  ;
+  
+  var hexM = '#' + min + min + min;
+document.getElementById('clockM').innerHTML = min  ;
+document.getElementById('clockM').style.color = hexM  ;
+  
+ var hexS = '#' + sec + sec + sec;
+document.getElementById('clockS').innerHTML = sec  ;
+document.getElementById('clockS').style.color=hexS  ; 
+  
+   
+  
+  setTimeout(function(){
+  colorClock();
+},1000);
+}
+colorClock()
+</script>
+</body>
+</html>
